@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="CommonBackground">
+		<control type="image">
+			<description>Normal Default Background Image</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture>$INFO[Window.Property(LatestEpisode.1.Fanart)]</texture>
+			<!--texture>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</texture-->
+			<visible>![Skin.HasSetting(UseCustomBackground) + !IsEmpty(Skin.String(CustomBackgroundPath))]</visible>
+		</control>
+		<control type="image">
+			<description>User Set Background Image</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<aspectratio>scale</aspectratio>
+			<texture>$INFO[Skin.String(CustomBackgroundPath)]</texture>
+			<visible>Skin.HasSetting(UseCustomBackground) + !IsEmpty(Skin.String(CustomBackgroundPath))</visible>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+			<fadetime>600</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+		</control>
+		<control type="visualisation">
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<visible>Player.HasAudio + !Skin.HasSetting(ShowBackgroundVis)</visible>
+			<visible>IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+		</control>
+		
+		<control type="image">
+			<width>1920</width>
+			<height>1080</height>
+			<texture>$VAR[BackgroundTexture]</texture>
+		</control>
+		<control type="image">
+			<visible>Window.IsVisible(dialogvideoinfo.xml)</visible>
+			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>black30.png</texture>
+		</control>
+		
+		<control type="videowindow">
+			<left>1300</left>
+			<top>800</top>
+			<width>400</width>
+			<height>200</height>
+			<visible>Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo) + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
+		</control>
+	</include>
+	
+	<include name="DialogBackground">
+	
+		<control type="image">
+			<visible>Window.IsVisible(106) | Window.IsVisible(100) | Window.IsVisible(109) | Window.IsVisible(103) | Window.IsVisible(2002) | Window.IsVisible(200)</visible>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>black80.png</texture>
+		</control>
+		
+	</include>
+	
+</includes>

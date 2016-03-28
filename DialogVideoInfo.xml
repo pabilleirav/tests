@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">8</defaultcontrol>
+	<controls>
+		<control type="group">
+			<visible>!Window.IsVisible(FileBrowser)</visible>
+			
+			<control type="group">
+				
+				<control type="grouplist">
+					<!--animation effect="slide" start="0" end="0,-55" time="0" condition="Container.Content(TVShows) | Container.Content(Seasons)">Conditional</animation-->
+					
+					<left>690</left>
+					<top>165</top>
+					<orientation>vertical</orientation>
+					<itemgap>20</itemgap>
+					
+					<control type="label">
+						<description>header label</description>
+						<width min="29" max="1000">auto</width>
+						<height>40</height>
+						<font>50lu</font>
+						<label>$INFO[Listitem.Title]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>Orange</textcolor>
+					</control>
+					
+					<control type="label">
+						<visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+						<width min="29" max="700">auto</width>
+						<height>35</height>
+						<font>35lu</font>
+						<textcolor>White</textcolor>
+						<label>$INFO[ListItem.Season] $LOCALIZE[36905] / [COLOR White]$INFO[ListItem.Episode] $LOCALIZE[20453][/COLOR]</label>
+					</control>
+					<control type="label">
+						<visible>![Container.Content(TVShows) | Container.Content(Seasons)]</visible>
+						<width min="29" max="1030">auto</width>
+						<height>35</height>
+						<font>35lu</font>
+						<textcolor>White50</textcolor>
+						<label>$INFO[Listitem.Genre]</label>
+					</control>
+				
+					<control type="grouplist">
+						<height>40</height>
+						<orientation>horizontal</orientation>
+						<itemgap>0</itemgap>
+						
+						<control type="image">
+							<top>30</top>
+							<width>155</width>
+							<height>36</height>
+							<colordiffuse>White50</colordiffuse>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[Listitem.StarRating]</texture>
+						</control>
+						
+						<control type="label">
+							<width min="29" max="300">auto</width>
+							<height>35</height>
+							<font>35lu</font>
+							<textcolor>White50</textcolor>
+							<label>    $INFO[Listitem.MPAA]</label>
+						</control>
+						
+						<control type="label">
+							<width min="29" max="150">auto</width>
+							<height>35</height>
+							<font>35lu</font>
+							<label>    $INFO[Listitem.Year]</label>
+							<align>left</align>
+							<aligny>top</aligny>
+							<textcolor>White50</textcolor>
+						</control>
+						
+						<control type="label">
+							<visible>!IsEmpty(Listitem.Duration)</visible>
+							<width min="29" max="200">auto</width>
+							<height>35</height>
+							<font>35l</font>
+							<textcolor>White50</textcolor>
+							<label>    $INFO[Listitem.Duration] min</label>
+						</control>
+						
+						<control type="label">
+							<visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+							<width min="29" max="400">auto</width>
+							<height>35</height>
+							<font>35lu</font>
+							<label>    $INFO[Listitem.Studio]</label>
+							<align>left</align>
+							<aligny>top</aligny>
+							<textcolor>White50</textcolor>
+						</control>
+						
+					</control>
+					
+					<control type="label">
+						<height>1</height>
+					</control>
+					
+					<!-- PLOT -->
+					
+					<control type="textbox" id="400">
+						<description>Description Value for Movies</description>
+						<width>1030</width>
+						<height min="100" max="272">auto</height>
+						<font>35lbox</font>
+						<align>left</align>
+						<textcolor>white</textcolor>
+						<pagecontrol>61</pagecontrol>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(61) + Skin.HasSetting(AutoScroll)</autoscroll>
+					</control>
+					<control type="label">
+						<height>3</height>
+					</control>
+					<!--control type="label">
+						<width min="29" max="700">auto</width>
+						<height>35</height>
+						<font>35lu</font>
+						<textcolor>White</textcolor>
+						<label>[COLOR White50]directed by[/COLOR]   $INFO[Listitem.Director]</label>
+					</control>
+					<control type="label">
+						<height>1</height>
+					</control>
+					
+					<!--control type="label">
+						<description>header label</description>
+						<width>1030</width>
+						<height>40</height>
+						<font>35lu</font>
+						<label>$LOCALIZE[206]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>White50</textcolor>
+					</control-->
+					
+					<!-- CAST -->
+					
+					<control type="list" id="50">
+						<width>1030</width>
+						<height>110</height>
+						<onleft>9000</onleft>
+						<onright>61</onright>
+						<onup>61</onup>
+						<ondown>9000</ondown>
+						<viewtype label="">list</viewtype>
+						<pagecontrol>61</pagecontrol>
+						<scrolltime>200</scrolltime>
+						<orientation>horizontal</orientation>
+						<itemlayout height="140" width="150">
+							<control type="image">
+								<left>0</left>
+								<top>0</top>
+								<width>104</width>
+								<height>104</height>
+								<texture diffuse="avatar_diffuse.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+							</control>
+							<!--control type="image">
+								<left>0</left>
+								<top>0</top>
+								<width>104</width>
+								<height>104</height>
+								<texture>avatar_border.png</texture>
+								<colordiffuse>White20</colordiffuse>
+								<aspectratio>stretch</aspectratio>
+							</control-->
+						</itemlayout>
+						<focusedlayout height="170" width="150">
+							<control type="image">
+								<left>0</left>
+								<top>0</top>
+								<width>104</width>
+								<height>104</height>
+								<texture diffuse="avatar_diffuse.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+							</control>
+							<!--control type="image">
+								<left>0</left>
+								<top>0</top>
+								<width>104</width>
+								<height>104</height>
+								<texture>avatar_border.png</texture>
+								<colordiffuse>White20</colordiffuse>
+								<aspectratio>stretch</aspectratio>
+							</control-->
+							<control type="image">
+								<visible>Control.HasFocus(50)</visible>
+								<left>0</left>
+								<top>0</top>
+								<width>104</width>
+								<height>104</height>
+								<texture>avatar_border.png</texture>
+								<colordiffuse>Orange</colordiffuse>
+								<aspectratio>stretch</aspectratio>
+							</control>
+						</focusedlayout>
+					</control>
+					
+					<control type="grouplist">
+						<height>80</height>
+						<orientation>vertical</orientation>
+						<itemgap>10</itemgap>
+					
+						<control type="label">
+							<visible>Control.HasFocus(50)</visible>
+							<description>Actor and Role</description>
+							<width>1030</width>
+							<height>35</height>
+							<font>35lu</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>Orange</textcolor>
+							<label>$INFO[Container(50).ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<visible>Control.HasFocus(50)</visible>
+							<description>Actor and Role</description>
+							<width>1030</width>
+							<height>35</height>
+							<font>35lu</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>White50</textcolor>
+							<label>as $INFO[Container(50).ListItem.Label2]</label>
+						</control>
+					</control>
+				</control>
+				
+				<!-- BUTTONS -->
+				
+				<control type="grouplist" id="9000">
+					<left>285</left>
+					<top>803</top>
+					<width>1030</width>
+					<height>250</height>
+					<itemgap>2</itemgap>
+					<align>center</align>
+					<orientation>vertical</orientation>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>50</onup>
+					<ondown>49</ondown>
+					<control type="togglebutton" id="8">
+						<description>Play/browse to Show</description>
+						<width>338</width>
+						<include>LibraryButtons</include>
+						<label>208</label>
+						<altlabel>1024</altlabel>
+						<usealttexture>Container.Content(TVShows)</usealttexture>
+					</control>
+					<!--control type="button" id="59">
+						<description>Cast/Review</description>
+						<width>340</width>
+						<include>LibraryButtons</include>
+						<label>206</label>
+					</control-->
+					<control type="button" id="11">
+						<description>Play Trailer</description>
+						<width>338</width>
+						<include>LibraryButtons</include>
+						<label>20410</label>
+						<visible>!IsEmpty(ListItem.Trailer) + !Skin.HasSetting(WindowedTrailer)</visible>
+					</control>
+					<control type="button" id="6">
+						<description>Refresh</description>
+						<width>338</width>
+						<include>LibraryButtons</include>
+						<label>184</label>
+					</control>
+					<control type="button" id="10">
+						<description>Get Thumb</description>
+						<width>338</width>
+						<include>LibraryButtons</include>
+						<label>13511</label>
+					</control>
+					<control type="button" id="15">
+						<description>Play Trailer Windowed</description>
+						<width>338</width>
+						<include>LibraryButtons</include>
+						<label>20410</label>
+						<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+						<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(WindowedTrailer)</visible>
+					</control>
+					<control type="button" id="15">
+						<description>Play Trailer Windowed</description>
+						<width>338</width>
+						<include>LibraryButtons</include>
+						<label>20410</label>
+						<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+						<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(WindowedTrailer)</visible>
+					</control>
+					<control type="button" id="100">
+						<description>Fetch TvTunes stuff</description>
+						<width>338</width>
+						<include>LibraryButtons</include>
+						<label>31127</label>
+						<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
+						<visible>Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes) + [Container.Content(TVShows) | Container.Content(movies) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
+					</control>
+				</control>
+				
+				<control type="group">
+					<visible>[!container.content(episodes) + !container.content(musicvideos)] + ![Control.HasFocus(12) | Control.HasFocus(15)]</visible>
+					<animation effect="zoom" start="100" end="130" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="slide" start="0" end="-390" delay="0" time="300" tween="sine" easing="out">WindowOpen</animation>
+					<animation effect="slide" start="-390" end="0" delay="0" time="300" tween="sine" easing="out">WindowClose</animation>
+					<left>831</left>
+					<top>345</top>
+					<width>260</width>
+					<height>379</height>
+				
+					<control type="image">
+						<width>260</width>
+						<height>379</height>
+						<texture background="true">$VAR[PosterThumb]</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					
+					<control type="image">
+						<width>260</width>
+						<height>379</height>
+						<aspectratio>stretch</aspectratio>
+						<texture border="5">white20_b2px.png</texture>
+					</control>
+				</control>
+				
+				<control type="group">
+					<visible>container.content(episodes) + !Control.HasFocus(12)</visible>
+					<top>90</top>
+					<left>210</left>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>380</width>
+						<height>250</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>250</top>
+						<width>380</width>
+						<height>250</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="diffuse_mirror2.png">$INFO[ListItem.Icon]</texture>
+					</control>
+					
+				</control>
+				<control type="group">
+					<visible>container.content(musicvideos) + !Control.HasFocus(12)</visible>
+					<top>90</top>
+					<left>210</left>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>380</width>
+						<height>360</height>
+						<aspectratio>keep</aspectratio>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					
+				</control>
+				
+			</control>
+			
+		</control>
+		
+		<include>DebugGrid</include>
+		
+	</controls>
+	
+</window>

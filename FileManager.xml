@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>20</defaultcontrol>
+	<controls>
+		<include>CommonBackground</include>
+		
+		<control type="label">
+			<include>WindowTitleCommons</include>
+			<label>$LOCALIZE[7]</label>
+		</control>
+		
+		<control type="group">
+			<left>125</left>
+			<top>0</top>
+			
+			<control type="label" id="101">
+				<description>current directory text label</description>
+				<left>50</left>
+				<top>231</top>
+				<width>780</width>
+				<height>80</height>
+				<font>40lu</font>
+				<textcolor>Orange</textcolor>
+				<scroll>true</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+			</control>
+			
+			<control type="list" id="20">
+				<left>0</left>
+				<top>308</top>
+				<width>900</width>
+				<height>661</height>
+				<onleft>30</onleft>
+				<onright>21</onright>
+				<onup>20</onup>
+				<ondown>20</ondown>
+				<pagecontrol>30</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="80" width="900">
+					
+					<control type="label">
+						<left>50</left>
+						<top>0</top>
+						<width>580</width>
+						<height>80</height>
+						<font>40l</font>
+						<textcolor>White</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>515</left>
+						<top>0</top>
+						<width>200</width>
+						<height>80</height>
+						<font>35l</font>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>
+						<textcolor>White50</textcolor>
+						<align>right</align>
+						<info>ListItem.Label2</info>
+					</control>
+					
+				</itemlayout>
+				
+				<focusedlayout height="80" width="900">
+					
+					<control type="image">
+						<visible>Control.HasFocus(20)</visible>
+						<width>760</width>
+						<height>84</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>Orange</colordiffuse>
+						<texture>white.png</texture>
+					</control>
+					
+					<control type="image">
+						<left>340</left>
+						<top>5</top>
+						<width>200</width>
+						<height>31</height>
+						<texture border="0,0,14,0">MediaItemDetailBG.png</texture>
+						<visible>Control.HasFocus(20) + !IsEmpty(ListItem.Label2)</visible>
+					</control>
+					<control type="label">
+						<left>50</left>
+						<top>0</top>
+						<width>580</width>
+						<height>80</height>
+						<font>40l</font>
+						<textcolor>Black</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>515</left>
+						<top>0</top>
+						<width>200</width>
+						<height>80</height>
+						<font>35l</font>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>
+						<textcolor>Black</textcolor>
+						<align>right</align>
+						<info>ListItem.Label2</info>
+					</control>
+					
+					<control type="group">
+						<visible>!Control.HasFocus(20)</visible>
+					
+						<control type="label">
+							<left>50</left>
+							<top>0</top>
+							<width>580</width>
+							<height>80</height>
+							<font>40l</font>
+							<textcolor>White</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>515</left>
+							<top>0</top>
+							<width>200</width>
+							<height>80</height>
+							<font>35l</font>
+							<aligny>center</aligny>
+							<selectedcolor>selected</selectedcolor>
+							<textcolor>White50</textcolor>
+							<align>right</align>
+							<info>ListItem.Label2</info>
+						</control>
+						
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="scrollbar" id="30">
+				<left>-75</left>
+				<top>308</top>
+				<width>5</width>
+				<height>644</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>white50.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="Orange">white.png</texturesliderbarfocus>
+				<textureslidernib>-</textureslidernib>
+				<textureslidernibfocus>-</textureslidernibfocus>
+				<onleft>-</onleft>
+				<onright>20</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<visible>Control.HasFocus(20) | Control.HasFocus(30)</visible>
+			</control>
+			
+		</control>
+		
+		<control type="image">
+			<left>959</left>
+			<top>255</top>
+			<width>1</width>
+			<height>697</height>
+			<aspectratio>stretch</aspectratio>
+			<colordiffuse>White50</colordiffuse>
+			<texture>white.png</texture>
+		</control>
+		
+		<control type="group">
+			<left>1035</left>
+			<top>0</top>
+			
+			<control type="label" id="102">
+				<description>current directory text label</description>
+				<left>50</left>
+				<top>231</top>
+				<width>780</width>
+				<height>80</height>
+				<font>40lu</font>
+				<textcolor>Orange</textcolor>
+				<scroll>true</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+			</control>
+			
+			<control type="list" id="21">
+				<left>0</left>
+				<top>308</top>
+				<width>900</width>
+				<height>661</height>
+				<onleft>20</onleft>
+				<onright>31</onright>
+				<onup>21</onup>
+				<ondown>21</ondown>
+				<pagecontrol>31</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="80" width="900">
+					
+					<control type="label">
+						<left>50</left>
+						<top>0</top>
+						<width>580</width>
+						<height>80</height>
+						<font>40l</font>
+						<textcolor>White</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>515</left>
+						<top>0</top>
+						<width>200</width>
+						<height>80</height>
+						<font>35l</font>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>
+						<textcolor>White50</textcolor>
+						<align>right</align>
+						<info>ListItem.Label2</info>
+					</control>
+					
+				</itemlayout>
+				
+				<focusedlayout height="80" width="900">
+					
+					<control type="image">
+						<visible>Control.HasFocus(21)</visible>
+						<width>760</width>
+						<height>84</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>Orange</colordiffuse>
+						<texture>white.png</texture>
+					</control>
+					
+					<control type="image">
+						<left>340</left>
+						<top>5</top>
+						<width>200</width>
+						<height>31</height>
+						<texture border="0,0,14,0">MediaItemDetailBG.png</texture>
+						<visible>Control.HasFocus(21) + !IsEmpty(ListItem.Label2)</visible>
+					</control>
+					<control type="label">
+						<left>50</left>
+						<top>0</top>
+						<width>580</width>
+						<height>80</height>
+						<font>40l</font>
+						<textcolor>Black</textcolor>
+						<selectedcolor>Orange</selectedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>515</left>
+						<top>0</top>
+						<width>200</width>
+						<height>80</height>
+						<font>35l</font>
+						<aligny>center</aligny>
+						<selectedcolor>Orange</selectedcolor>
+						<textcolor>Black</textcolor>
+						<align>right</align>
+						<info>ListItem.Label2</info>
+					</control>
+					
+					<control type="group">
+						<visible>!Control.HasFocus(21)</visible>
+					
+						<control type="label">
+							<left>50</left>
+							<top>0</top>
+							<width>580</width>
+							<height>80</height>
+							<font>40l</font>
+							<textcolor>White</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>515</left>
+							<top>0</top>
+							<width>200</width>
+							<height>80</height>
+							<font>35l</font>
+							<aligny>center</aligny>
+							<selectedcolor>selected</selectedcolor>
+							<textcolor>White50</textcolor>
+							<align>right</align>
+							<info>ListItem.Label2</info>
+						</control>
+						
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="scrollbar" id="31">
+				<left>830</left>
+				<top>308</top>
+				<width>5</width>
+				<height>644</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>white50.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="Orange">white.png</texturesliderbarfocus>
+				<textureslidernib>-</textureslidernib>
+				<textureslidernibfocus>-</textureslidernibfocus>
+				<onleft>21</onleft>
+				<onright>-</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<visible>Control.HasFocus(21) | Control.HasFocus(31)</visible>
+			</control>
+			
+		</control>
+		
+		<control type="label">
+			<description>number of files/pages in left list text label</description>
+			<left>175</left>
+			<top>80r</top>
+			<width>570</width>
+			<font>35lu</font>
+			<align>left</align>
+			<scroll>true</scroll>
+			<textcolor>White50</textcolor>
+			<label>$INFO[Container(20).CurrentItem] $LOCALIZE[1443] $INFO[Container(20).NumItems] $LOCALIZE[31025]</label>
+		</control>
+		
+		<control type="label">
+			<description>number of files/pages in left list text label</description>
+			<left>1085</left>
+			<top>80r</top>
+			<width>570</width>
+			<font>35lu</font>
+			<align>left</align>
+			<scroll>true</scroll>
+			<textcolor>White50</textcolor>
+			<label>$INFO[Container(21).CurrentItem] $LOCALIZE[1443] $INFO[Container(21).NumItems] $LOCALIZE[31025]</label>
+		</control>
+		
+		<include>Clock</include>
+		
+		<include>DebugGrid</include>
+		<include>DebugInfo</include>
+	</controls>
+</window>

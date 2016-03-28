@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<onunload condition="Container(9000).Hasfocus(10) | Container(9000).Hasfocus(11) | ControlGroup(9010).HasFocus | ControlGroup(9016).HasFocus | ControlGroup(9017).HasFocus">SetProperty(VideosDirectLink,True)</onunload>
+	<onunload condition="ControlGroup(9011).HasFocus">SetProperty(MusicDirectLink,True)</onunload>
+	<onunload condition="Control.HasFocus(9000) + Container(9000).Hasfocus(2)">ClearProperty(VideosDirectLink)</onunload>
+	<onunload condition="Control.HasFocus(9000) + Container(9000).Hasfocus(3)">ClearProperty(MusicDirectLink)</onunload>
+	<controls>
+		
+		<include>CommonBackground</include>
+		
+		<control type="label">
+			<left>50</left>
+			<top>45</top>
+			<width>662</width>
+			<height>35</height>
+			<info>System.ProfileName</info>
+			<font>40lu</font>
+			<textcolor>White</textcolor>
+			<shadowcolor>-</shadowcolor>
+			<align>left</align>
+		</control>
+		<control type="image">
+			<visible>Control.HasFocus(9000)</visible>
+			<animation condition="Container(9000).Position(0)" effect="slide" start="0,0" end="0,0" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(1)" effect="slide" start="0,0" end="0,86" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(2)" effect="slide" start="0,0" end="0,172" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(3)" effect="slide" start="0,0" end="0,258" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(4)" effect="slide" start="0,0" end="0,344" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(5)" effect="slide" start="0,0" end="0,430" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(6)" effect="slide" start="0,0" end="0,516" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(7)" effect="slide" start="0,0" end="0,602" time="100" reversible="true">Conditional</animation>
+			<animation condition="Container(9000).Position(8)" effect="slide" start="0,0" end="0,688" time="100" reversible="true">Conditional</animation>
+			<left>0</left>
+			<top>137</top>
+			<width>5</width>
+			<height>65</height>
+			<texture border="5">white.png</texture>
+			<colordiffuse>Orange</colordiffuse>
+		</control>
+		
+		<control type="list" id="9000">
+			<left>50</left>
+			<top>135</top>
+			<width>1500</width>
+			<height>500</height>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<onright>9000</onright>
+			<onleft>ActivateWindow(ShutdownMenu)</onleft>
+			<pagecontrol>-</pagecontrol>
+			<scrolltime>300</scrolltime>
+			<orientation>Vertical</orientation>
+			<itemlayout width="700" height="86">
+				<control type="label">
+					<animation effect="slide" start="40" end="0" time="200">WindowOpen</animation>
+					<left>0</left>
+					<top>0</top>
+					<width>550</width>
+					<height>75</height>
+					<font>58lu</font>
+					<textcolor>White50</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout width="700" height="86">
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>550</width>
+					<height>75</height>
+					<font>58lu</font>
+					<textcolor>Orange</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="10">
+					<label>31954</label>
+					<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoMovieButton) + Library.HasContent(Movies)</visible>
+				</item>
+				<item id="11">
+					<label>31955</label>
+					<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoTVShowButton) + Library.HasContent(TVShows)</visible>
+				</item>
+				<item id="3">
+					<label>31956</label>
+					<onclick condition="StringCompare(Window.Property(MusicDirectLink),True)">ActivateWindow(Music)</onclick>
+					<onclick condition="!StringCompare(Window.Property(MusicDirectLink),True)">ActivateWindow(Music,root)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
+				</item>
+				<item id="4">
+					<label>31951</label>
+					<onclick>ActivateWindow(Pictures)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
+				</item>
+				<item id="13">
+					<label>31960</label>
+					<onclick>ActivateWindow(RadioChannels)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>PVR.HasRadioChannels</visible>
+				</item>
+				<item id="20">
+					<label>24069</label>
+					<onclick>UpdateLibrary(Video)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+				</item>
+				<item id="12">
+					<label>31952</label>
+					<onclick>ActivateWindow(TVChannels)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>PVR.HasTVChannels</visible>
+				</item>
+				<item id="2">
+					<label>31953</label>
+					<onclick condition="StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos)</onclick>
+					<onclick condition="!StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos,root)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+				</item>
+				<item id="3">
+					<label>31956</label>
+					<onclick condition="StringCompare(Window.Property(MusicDirectLink),True)">ActivateWindow(Music)</onclick>
+					<onclick condition="!StringCompare(Window.Property(MusicDirectLink),True)">ActivateWindow(Music,root)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
+				</item>
+				<item id="14">
+					<label>137</label>
+					<onclick>RunScript(script.globalsearch)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>System.HasAddon(script.globalsearch)</visible>
+				</item>
+				<item id="1">
+					<label>31957</label>
+					<onclick condition="!System.Platform.Android">ActivateWindow(Programs,Addons,return)</onclick>
+					<onclick condition="System.Platform.Android">ActivateWindow(Programs)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
+				</item>
+				<item id="6">
+					<label>31958</label>
+					<onclick>PlayDVD()</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>System.HasMediaDVD</visible>
+				</item>
+				<item id="5">
+					<label>31959</label>
+					<onclick>ActivateWindow(Settings)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+				</item>
+				<item id="50">
+					<label>$LOCALIZE[20094]</label>
+					<onclick>ActivateWindow(filemanager)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+				</item>
+			</content>
+		</control>
+		
+		<include>DebugGrid</include>
+		<include>DebugInfo</include>
+		
+	</controls>
+</window>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>1</defaultcontrol>
+	<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding] + !Window.IsActive(VideoOSD)</visible>
+	<controls>
+		
+		<control type="group">
+			<visible>player.chaptercount + Window.IsVisible(FullScreenVideo)</visible>
+			<left>50</left>
+			<top>898</top>
+			<control type="label" id="1">
+				<visible>Player.DisplayAfterSeek</visible>
+				<width>500</width>
+				<height>35</height>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>40lu</font>
+				<textcolor>White</textcolor>
+				<label>$VAR[OSDLabels]</label>
+			</control>
+		</control>
+		
+		<control type="group">
+			<left>0</left>
+			<top>993</top>
+			
+			<control type="label" id="1">
+				<left>50</left>
+				<width>150</width>
+				<height>35</height>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>40lu</font>
+				<textcolor>White</textcolor>
+				<label>$INFO[VideoPlayer.Time]</label>
+			</control>
+			
+			<control type="label" id="1">
+				<left>1470</left>
+				<width>400</width>
+				<height>35</height>
+				<align>right</align>
+				<aligny>top</aligny>
+				<font>40lu</font>
+				<textcolor>White</textcolor>
+				<label>$INFO[VideoPlayer.Duration]</label>
+			</control>
+			
+		</control>
+		
+		<control type="group">
+			<left>50</left>
+			<top>964</top>
+			
+			<control type="progress">
+				<description>ProgressbarCache</description>
+				<width>1820</width>
+				<height>5</height>
+				<info>Player.ProgressCache</info>
+				<colordiffuse>White50</colordiffuse>
+				<visible>true</visible>
+			</control>
+			<control type="progress" id="23">
+				<description>Progressbar</description>
+				<width>1820</width>
+				<height>5</height>
+				<info>Player.Progress</info>
+				<colordiffuse>Orange</colordiffuse>
+				<visible>true</visible>
+			</control>
+			<control type="slider" id="401">
+				<description>Seek Slider</description>
+				<width>240</width>
+				<height>5</height>
+				<texturesliderbar>seekslider.png</texturesliderbar>
+				<textureslidernib>osd_slider_nib.png</textureslidernib>
+				<textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+				<visible>Player.Seeking</visible>
+			</control>
+			<control type="image">
+				<top>2</top>
+				<description>Back</description>
+				<width>1820</width>
+				<height>5</height>
+				<texture>white_5x5.png</texture>
+				<colordiffuse>White20</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+		</control>
+		<include>DebugGrid</include>
+	</controls>
+</window>

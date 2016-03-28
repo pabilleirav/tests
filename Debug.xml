@@ -1,0 +1,707 @@
+<?xml version="1.0"?>
+<includes>
+	
+	<include name="DebugGrid">
+		
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>backgrounds/debuggrid1080.png</texture>
+			<visible>Skin.HasSetting(DebugGrid)</visible>
+		</control>
+
+	</include>
+	
+	<include name="windowLabel">
+		<control type="label">
+			<visible>Skin.HasSetting(showdebug)</visible>
+			<left>100</left>
+			<top>100</top>
+			<width>550</width>
+			<height>40</height>
+			<font>40lu</font>
+			<textcolor>Orange</textcolor>
+			<align>left</align>
+			<label>$INFO[Window.Property(xmlfile)]</label>
+		</control>
+	</include>
+	
+	<include name="debugFont">
+		
+		<width>550</width>
+		<height>23</height>
+		<font>20l</font>
+		<textcolor>white</textcolor>
+		<align>left</align>
+		<scroll>false</scroll>
+		<wrapmultiline>false</wrapmultiline>
+		
+	</include>
+	
+	<include name="debugImage">
+		
+		<height>200</height>
+		<aspectratio>keep</aspectratio>
+		<align>left</align>
+	
+	</include>
+	
+	<variable name="ContainerContent">
+		<value condition="Container.Content(empty)">empty</value>
+		<value condition="Container.Content(files)">files</value>
+		<value condition="Container.Content(file)">file</value>
+		<value condition="Container.Content(folder)">folder</value>
+		<value condition="Container.Content(folders)">folders</value>
+		<value condition="Container.Content(songs)">songs</value>
+		<value condition="Container.Content(song)">song</value>
+		<value condition="Container.Content(artists)">artists</value>
+		<value condition="Container.Content(artist)">artist</value>
+		<value condition="Container.Content(albums)">albums</value>
+		<value condition="Container.Content(album)">album</value>
+		<value condition="Container.Content(movies)">movies</value>
+		<value condition="Container.Content(movie)">movie</value>
+		<value condition="Container.Content(tvshows)">tvshows</value>
+		<value condition="Container.Content(tvshow)">tvshow</value>
+		<value condition="Container.Content(seasons)">seasons</value>
+		<value condition="Container.Content(season)">season</value>
+		<value condition="Container.Content(episodes)">episodes</value>
+		<value condition="Container.Content(episode)">episode</value>
+		<value condition="Container.Content(clips)">clips</value>
+		<value condition="Container.Content(clip)">clip</value>
+		<value condition="Container.Content(homemovies)">homemovies</value>
+		<value condition="Container.Content(musicvideos)">musicvideos</value>
+		<value condition="Container.Content(genres)">genres</value>
+		<value condition="Container.Content(years)">years</value>
+		<value condition="Container.Content(actors)">actors</value>
+		<value condition="Container.Content(actor)">actor</value>
+		<value condition="Container.Content(playlists)">playlists</value>
+		<value condition="Container.Content(playlist)">playlist</value>
+		<value condition="Container.Content(plugins)">plugins</value>
+		<value condition="Container.Content(channels)">channels</value>
+		<value condition="Container.Content(channel)">channel</value>
+		<value condition="Container.Content(studios)">studios</value>
+		<value condition="Container.Content(directors)">directors</value>
+		<value condition="Container.Content(director)">director</value>
+		<value condition="Container.Content(plugincontent)">plugincontent</value>
+		<value condition="Container.Content(addons)">addons</value>
+		<value condition="Container.Content(secondary)">secondary</value>
+		<value condition="Container.Content(photos)">photos</value>
+		<value condition="Container.Content(photoalbum)">photoalbum</value>
+		<value condition="Container.Content(photoalbums)">photoalbums</value>
+		<value/>
+	</variable>
+	<include name="DebugInfo">
+		
+		<control type="group">
+			<visible>Skin.HasSetting(showdebug)</visible>
+			
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>1080</height>
+				<texture>black80.png</texture>
+			</control>
+			
+			<control type="grouplist">
+				<left>50</left>
+				<top>50</top>
+				<width>600</width>
+				<height>980</height>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>[COLOR=Orange]SYSTEM[/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.Time : [COLOR=Orange]$INFO[System.Time][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.Date : [COLOR=Orange]$INFO[System.Date][/COLOR]</label>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.BuildVersion : [COLOR=Orange]$INFO[System.BuildVersion][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.BuildDate : [COLOR=Orange]$INFO[System.BuildDate][/COLOR]</label>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.FriendlyName : [COLOR=Orange]$INFO[System.FriendlyName][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.Screenresolution : [COLOR=Orange]$INFO[Skin.AspectRatio] - $INFO[System.Screenresolution][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.Memory(used) : [COLOR=Orange]$INFO[System.Memory(used)][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.Memory(used.percent) : [COLOR=Orange]$INFO[System.Memory(used.percent)][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.CpuUsage : [COLOR=Orange]$INFO[System.CpuUsage][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.GPUTemperature : [COLOR=Orange]$INFO[System.GPUTemperature][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.FPS : [COLOR=Orange]$INFO[System.FPS][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.BatteryLevel : [COLOR=Orange]$INFO[System.BatteryLevel][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.FanSpeed : [COLOR=Orange]$INFO[System.FanSpeed][/COLOR]</label>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.CurrentWindow : [COLOR=Orange]$INFO[System.CurrentWindow][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window.Property(xmlfile) : [COLOR=Orange]$INFO[Window.Property(xmlfile)][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.CurrentControl : [COLOR=Orange]$INFO[System.CurrentControl][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>System.ProfileName : [COLOR=Orange]$INFO[System.ProfileName][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.Content : [COLOR=Orange]$VAR[ContainerContent][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.DBTYPE : [COLOR=Orange]$INFO[ListItem.DBTYPE][/COLOR]</label>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.FolderPath : [COLOR=Orange]$INFO[Container.FolderPath][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.FolderName : [COLOR=Orange]$INFO[ListItem.FolderName][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.FolderName : [COLOR=Orange]$INFO[Container.FolderName][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.Viewmode : [COLOR=Orange]$INFO[Container.Viewmode][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.SortMethod : [COLOR=Orange]$INFO[Container.SortMethod][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.NumItems : [COLOR=Orange]$INFO[Container.NumItems][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.CurrentItem : [COLOR=Orange]$INFO[Container.CurrentItem][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.NumPages : [COLOR=Orange]$INFO[Container.NumPages][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.CurrentPage : [COLOR=Orange]$INFO[Container.CurrentPage][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.Totaltime : [COLOR=Orange]$INFO[Container.Totaltime] hours[/COLOR]</label>
+				</control>
+			
+			</control>
+			
+			<control type="grouplist">
+				<left>700</left>
+				<top>50</top>
+				<width>600</width>
+				<height>980</height>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>[COLOR=Orange]LIST INFO[/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.DateAdded : [COLOR=Orange]$INFO[ListItem.DateAdded][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.DateAdded)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Size : [COLOR=Orange]$INFO[ListItem.Size][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Size)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Overlay : [COLOR=Orange]$INFO[ListItem.Overlay][/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.LastPlayed : [COLOR=Orange]$INFO[ListItem.LastPlayed][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.LastPlayed)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.PercentPlayed : [COLOR=Orange]$INFO[ListItem.PercentPlayed]%[/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.IsResumable : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>ListItem.IsResumable</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.IsResumable : [COLOR=Orange]No[/COLOR]</label>
+					<visible>!ListItem.IsResumable</visible>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.IsCollection : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>ListItem.IsCollection</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.IsCollection : [COLOR=Orange]No[/COLOR]</label>
+					<visible>!ListItem.IsCollection</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Label : [COLOR=Orange]$INFO[ListItem.Label][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Label)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Label2 : [COLOR=Orange]$INFO[ListItem.Label2][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Label2)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Title : [COLOR=Orange]$INFO[ListItem.Title][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Title)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.OriginalTitle : [COLOR=Orange]$INFO[ListItem.OriginalTitle][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.OriginalTitle)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.TVShowTitle : [COLOR=Orange]$INFO[ListItem.TVShowTitle][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Property(TotalSeasons) : [COLOR=Orange]$INFO[ListItem.Property(TotalSeasons)][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Property(TotalSeasons))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Property(TotalEpisodes) : [COLOR=Orange]$INFO[ListItem.Property(TotalEpisodes)][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Property(NumEpisodes) : [COLOR=Orange]$INFO[ListItem.Property(NumEpisodes)][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Property(NumEpisodes))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Property(WatchedEpisodes) : [COLOR=Orange]$INFO[ListItem.Property(WatchedEpisodes)][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Property(UnWatchedEpisodes) : [COLOR=Orange]$INFO[ListItem.Property(UnWatchedEpisodes)][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Season : [COLOR=Orange]$INFO[ListItem.Season][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Season)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Episode : [COLOR=Orange]$INFO[ListItem.Episode][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Episode)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Genre : [COLOR=Orange]$INFO[Listitem.Genre][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Genre)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Duration : [COLOR=Orange]$INFO[Listitem.Duration]'[/COLOR]</label>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Date : [COLOR=Orange]$INFO[Listitem.Date][/COLOR]</label>
+					<visible>!IsEmpty(Listitem.Date)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Premiered : [COLOR=Orange]$INFO[ListItem.Premiered][/COLOR]</label>
+					<visible>!IsEmpty(Listitem.Premiered)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Year : [COLOR=Orange]$INFO[Listitem.Year][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Year)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Country : [COLOR=Orange]$INFO[ListItem.Country][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Country)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.MPAA : [COLOR=Orange]$INFO[Listitem.MPAA][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.MPAA)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.IMDBNumber : [COLOR=Orange]$INFO[ListItem.IMDBNumber][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.IMDBNumber)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Top250 : [COLOR=Orange]$INFO[ListItem.Top250][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Top250)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.RatingAndVotes : [COLOR=Orange]$INFO[ListItem.RatingAndVotes][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Rating : [COLOR=Orange]$INFO[ListItem.Rating][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Rating)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Votes : [COLOR=Orange]$INFO[ListItem.Votes][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Votes)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Tagline : [COLOR=Orange]$INFO[Listitem.Tagline][/COLOR]</label>
+					<visible>!IsEmpty(Listitem.Tagline)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.ShowPlot : [COLOR=Orange]$INFO[Container.ShowPlot][/COLOR]</label>
+					<visible>!IsEmpty(Container.ShowPlot)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Plot : [COLOR=Orange]$INFO[Listitem.Plot][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Plot)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.PlotOutline : [COLOR=Orange]$INFO[Listitem.PlotOutline][/COLOR]</label>
+					<visible>!IsEmpty(Listitem.PlotOutline)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Property(summary) : [COLOR=Orange]$INFO[ListItem.Property(summary)][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Property(summary))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Container.Property(summary) : [COLOR=Orange]$INFO[Container.Property(summary)][/COLOR]</label>
+					<visible>!IsEmpty(Container.Property(summary))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Director : [COLOR=Orange]$INFO[Listitem.Director][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Director)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Writer : [COLOR=Orange]$INFO[Listitem.Writer][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Writer)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Listitem.Cast : [COLOR=Orange]$INFO[Listitem.Cast][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Cast)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.CastAndRole : [COLOR=Orange]$INFO[ListItem.CastAndRole][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.CastAndRole)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Studio : [COLOR=Orange]$INFO[ListItem.Studio][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Studio)</visible>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+			</control>
+			
+			<control type="grouplist">
+				<left>1350</left>
+				<top>50</top>
+				<width>600</width>
+				<height>980</height>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>[COLOR=Orange]IMAGES[/COLOR]</label>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Icon : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Icon)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.ActualIcon : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.ActualIcon)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Thumb : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Thumb)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(thumb) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(poster) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(poster))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(tvshow.poster) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(season.poster) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(season.poster))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(banner) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(banner))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(tvshow.banner) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(season.banner) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(season.banner))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(fanart) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(set.fanart) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(set.fanart))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(season.fanart) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(season.fanart))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(landscape) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(landscape))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(clearlogo) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(clearlogo))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.Art(clearart) : [COLOR=Orange]Yes[/COLOR]</label>
+					<visible>!IsEmpty(ListItem.Art(clearart))</visible>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>[COLOR=Orange]FILE INFO[/COLOR]</label>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.AudioLanguage : [COLOR=Orange]$INFO[ListItem.AudioLanguage][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.AudioLanguage)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.SubtitleLanguage : [COLOR=Orange]$INFO[ListItem.SubtitleLanguage][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.VideoResolution : [COLOR=Orange]$INFO[ListItem.VideoResolution][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.VideoAspect : [COLOR=Orange]$INFO[ListItem.VideoAspect][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.VideoCodec : [COLOR=Orange]$INFO[ListItem.VideoCodec][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.AudioCodec : [COLOR=Orange]$INFO[ListItem.AudioCodec][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>ListItem.AudioChannels : [COLOR=Orange]$INFO[ListItem.AudioChannels][/COLOR]</label>
+					<visible>!IsEmpty(ListItem.AudioChannels)</visible>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>[COLOR=Orange]LIBRARY INFO[/COLOR]</label>
+				</control>
+				
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(Movies.Count) : [COLOR=Orange]$INFO[Window(Home).Property(Movies.Count)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(Movies.Count))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(Movies.Watched) : [COLOR=Orange]$INFO[Window(Home).Property(Movies.Watched)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(Movies.Watched))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(Movies.UnWatched) : [COLOR=Orange]$INFO[Window(Home).Property(Movies.UnWatched)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(Movies.UnWatched))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(TVShows.Count) : [COLOR=Orange]$INFO[Window(Home).Property(TVShows.Count)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(TVShows.Count))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(TVShows.Watched) : [COLOR=Orange]$INFO[Window(Home).Property(TVShows.Watched)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(TVShows.Watched))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(TVShows.UnWatched) : [COLOR=Orange]$INFO[Window(Home).Property(TVShows.UnWatched)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(TVShows.UnWatched))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(Episodes.Count) : [COLOR=Orange]$INFO[Window(Home).Property(Episodes.Count)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(Episodes.Count))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(Episodes.Watched) : [COLOR=Orange]$INFO[Window(Home).Property(Episodes.Watched)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(Episodes.Watched))</visible>
+				</control>
+				<control type="label">
+					<include>debugFont</include>
+					<label>Window(Home).Property(Episodes.UnWatched) : [COLOR=Orange]$INFO[Window(Home).Property(Episodes.UnWatched)][/COLOR]</label>
+					<visible>!IsEmpty(Window(Home).Property(Episodes.UnWatched))</visible>
+				</control>
+				
+			
+			</control>
+			
+		</control>
+			
+	</include>
+		
+</includes>
